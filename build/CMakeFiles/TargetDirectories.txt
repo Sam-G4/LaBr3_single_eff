@@ -1,0 +1,7 @@
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/LaBr3_cyl.dir
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/edit_cache.dir
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/rebuild_cache.dir
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/list_install_components.dir
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/install.dir
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/install/local.dir
+/home/prachi/Software/Geant4_work/LaBr3/LaBr-main/003/Eff_LaBr3_auto (copy)/build/CMakeFiles/install/strip.dir
