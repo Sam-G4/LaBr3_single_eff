@@ -1,0 +1,21 @@
+/control/verbose 0
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
+
+# Set the particle parameters
+/gun/particle gamma
+#/gps/pos/type Point
+#/gps/position 0 0 0 mm
+#/gps/ang/type iso
+
+# Dynamic substitution placeholder
+/gun/energy ENERGY_PLACEHOLDER MeV
+
+
+# CRITICAL FIX: Initialize the Geant4 kernel state machine
+/run/initialize
+
+# Run 10 lac events per point
+/run/beamOn 1000000
