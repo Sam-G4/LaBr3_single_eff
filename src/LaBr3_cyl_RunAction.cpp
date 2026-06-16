@@ -11,6 +11,7 @@
 // Link global metrics monitored inside the SD
 extern G4int nAbs; // This now tracks ONLY full-energy photopeak events!
 extern G4int nPhotopeak;
+extern G4int nTruePPk;
 
 LaBr3_cyl_RunAction::LaBr3_cyl_RunAction() {}
 LaBr3_cyl_RunAction::~LaBr3_cyl_RunAction() {}
@@ -19,6 +20,7 @@ void LaBr3_cyl_RunAction::BeginOfRunAction(const G4Run*) {
     // Reset performance metrics for the current execution run
     nAbs = 0;
     nPhotopeak = 0;
+    nTruePPk = 0;
 
     G4AnalysisManager *analysisManager = G4AnalysisManager::Instance();
     analysisManager->OpenFile("output.root");
@@ -44,6 +46,7 @@ void LaBr3_cyl_RunAction::EndOfRunAction(const G4Run* run) {
     // This is now strictly your PHOTOPEAK efficiency
     G4double photopeakEff = (G4double)nPhotopeak / nGenerated;
     G4double Abseff = (G4double)nAbs / nGenerated;
+    G4double TruePPEff = (G4double)nTruePPk / nGenerated;
 
     // Fetch the active gun energy dynamically from the primary generator
     auto genAction = static_cast<const LaBr3_cyl_PrimaryGeneratorAction*>(
@@ -57,7 +60,8 @@ void LaBr3_cyl_RunAction::EndOfRunAction(const G4Run* run) {
         // Format: Energy(MeV)   PhotopeakEff(%)
         outFile << energy_MeV << "\t" 
                 << Abseff *100.0 <<"\t"
-                << photopeakEff * 100.0 << "\n";
+                << photopeakEff * 100.0 << "\t"
+                << TruePPEff *100 << "\n";
         outFile.close();
         G4cout << ">>> [DEBUG]: Successfully wrote Photopeak data for " << energy_MeV << " MeV to PP_eff.txt" << G4endl;
     } else {
