@@ -4,8 +4,7 @@
 OUTPUT_FILE="PP_eff.txt"
 
 # Write the updated clean Photopeak headers (2 Columns)
-echo -e "Energy(MeV)\tAbsEff (%)\tPhotopeakEff(%)" > "$OUTPUT_FILE"
-
+echo -e "Energy(MeV)\tAbsEff (%)\tPhotopeakEff(%)\tTruePPEff(%)" > "$OUTPUT_FILE"
 current_energy=0.662
 max_energy=20.0
 interval=0.500
