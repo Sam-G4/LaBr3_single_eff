@@ -16,6 +16,7 @@
 G4int nAbs = 0;      // Counter for events with interactions
 //G4int nEntered = 0;  // Counter for primary gammas entering the crystal
 G4int nPhotopeak = 0;
+G4int nTruePPk = 0;
 
 LaBr3_cyl_SensitiveDetector::LaBr3_cyl_SensitiveDetector(const G4String& name) 
     : G4VSensitiveDetector(name), fHitsCollection(nullptr) { 
@@ -118,6 +119,10 @@ void LaBr3_cyl_SensitiveDetector::EndOfEvent(G4HCofThisEvent*)
                 }
             }
         }
+
+        if (std::abs(totalEdep - Egamma) < 0.1 * keV) {
+    	nTruePPk++; 
+   	 }
 
         // 2. Define your window bounds (Using a safe 3-sigma gate for floating-point smearing)
         G4double lowerBound = Egamma - (1.0 * sigma);
